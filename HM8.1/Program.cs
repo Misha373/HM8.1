@@ -57,29 +57,21 @@ for (int i = 0; i < array4.GetLength(0); i++)
 int MaximumNumber = array4[0,0];
 int Maximumcoordinates1 = 0;
 int Maximumcoordinates2 = 0;
-
-for (int i = 0; i < array4.GetLength(0); i++)
-{
-    for (int j = 1; j < array4.GetLength(1); j++)
-    {
-        if (MaximumNumber < array4[i, j])
-        {
-            MaximumNumber = array4[i, j];
-            Maximumcoordinates1 = i;
-            Maximumcoordinates2 = j;
-        }
-    }
-}
-Console.WriteLine($"Найбільше число є: {MaximumNumber}, з координатами: {Maximumcoordinates1}, {Maximumcoordinates1}");
-
 int MinimumNumber = array4[0, 0];
 int Minimumcoordinates1 = 0;
 int Minimumcoordinates2 = 0;
 
 for (int i = 0; i < array4.GetLength(0); i++)
 {
-    for (int j = 1; j < array4.GetLength(1); j++)
+    for (int j = 0; j < array4.GetLength(1); j++)
     {
+        if (MaximumNumber < array4[i, j])
+        {
+            MaximumNumber = array4[i, j];
+            Maximumcoordinates1 = i;
+            Maximumcoordinates2 = j;
+
+        }
         if (MinimumNumber > array4[i, j])
         {
             MinimumNumber = array4[i, j];
@@ -88,4 +80,5 @@ for (int i = 0; i < array4.GetLength(0); i++)
         }
     }
 }
+Console.WriteLine($"Найбільше число є: {MaximumNumber}, з координатами: {Maximumcoordinates1}, {Maximumcoordinates1}");
 Console.WriteLine($"Найменше число є: {MinimumNumber}, з координатами: {Minimumcoordinates1}, {Minimumcoordinates2}");
